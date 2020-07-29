@@ -6,12 +6,9 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Conv2D, Flatten, Dropout, MaxPooling2D
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-# Retrieve dataset
-path_to_zip = tf.keras.utils.get_file('cats_and_dogs.zip', origin='https://storage.googleapis.com/mledu-datasets/cats_and_dogs_filtered.zip', extract=True)
-
 # Set dataset paths
-train_dir = os.path.join(os.path.dirname(path_to_zip), 'cats_and_dogs_filtered', 'train')
-validation_dir = os.path.join(os.path.dirname(path_to_zip), 'cats_and_dogs_filtered', 'validation')
+train_dir = os.path.join('datasets', 'cats_and_dogs_filtered', 'train')
+validation_dir = os.path.join('datasets', 'cats_and_dogs_filtered', 'validation')
 train_cats_dir = os.path.join(train_dir, 'cats')
 train_dogs_dir = os.path.join(train_dir, 'dogs')
 validation_cats_dir = os.path.join(validation_dir, 'cats')
