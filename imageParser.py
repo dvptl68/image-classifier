@@ -1,9 +1,8 @@
-from keras.datasets import mnist
-import tensorflow as tensor
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Dropout, Activation, Flatten, Conv2D, MaxPooling2D
-from keras.models import model_from_json
-from keras.models import load_model
+import tensorflow as tf
+import os
+import numpy as np
 import matplotlib.pyplot as plt
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Conv2D, Flatten, Dropout, MaxPooling2D
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-# (x_train, y_train), (x_test, y_test) = mnist.load_data()
