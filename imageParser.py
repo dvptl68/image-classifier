@@ -29,7 +29,7 @@ val_data_gen = validation_image_generator.flow_from_directory(batch_size=batch_s
 
 sample_training_images, _ = next(train_data_gen)
 
-# Image plotter
+# Plot images
 # def plotImages(images_arr):
 #   _, axes = plt.subplots(1, 5, figsize=(20,20))
 #   axes = axes.flatten()
@@ -54,3 +54,8 @@ model = Sequential([
   Dense(1)
 ])
 
+# Compile model
+model.compile(optimizer='adam', loss=tf.keras.losses.BinaryCrossentropy(from_logits=True), metrics=['accuracy'])
+
+# Show model layers
+model.summary()
