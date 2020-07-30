@@ -40,3 +40,17 @@ sample_training_images, _ = next(train_data_gen)
 #   plt.show()
 
 # plotImages(sample_training_images[:5])
+
+# Create model
+model = Sequential([
+  Conv2D(16, 3, padding='same', activation='relu', input_shape=(IMG_HEIGHT, IMG_WIDTH ,3)),
+  MaxPooling2D(),
+  Conv2D(32, 3, padding='same', activation='relu'),
+  MaxPooling2D(),
+  Conv2D(64, 3, padding='same', activation='relu'),
+  MaxPooling2D(),
+  Flatten(),
+  Dense(512, activation='relu'),
+  Dense(1)
+])
+
