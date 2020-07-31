@@ -15,6 +15,15 @@ validation_cats_dir = os.path.join(validation_dir, 'cats')
 validation_dogs_dir = os.path.join(validation_dir, 'dogs')
 
 # Useful variables
+num_cats_tr = len(os.listdir(train_cats_dir))
+num_dogs_tr = len(os.listdir(train_dogs_dir))
+
+num_cats_val = len(os.listdir(validation_cats_dir))
+num_dogs_val = len(os.listdir(validation_dogs_dir))
+
+total_train = num_cats_tr + num_dogs_tr
+total_val = num_cats_val + num_dogs_val
+
 batch_size = 128
 epochs = 15
 IMG_HEIGHT = 150
@@ -57,5 +66,12 @@ model = Sequential([
 # Compile model
 model.compile(optimizer='adam', loss=tf.keras.losses.BinaryCrossentropy(from_logits=True), metrics=['accuracy'])
 
-# Show model layers
-model.summary()
+# Train model
+history = model.fit(
+  train_data_gen,
+  steps_per_epoch=total_train // batch_size,
+  epochs=epochs,
+  validation_data=val_data_gen,
+  validation_steps=total_val // batch_size
+)
+
