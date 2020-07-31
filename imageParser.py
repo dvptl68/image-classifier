@@ -38,18 +38,6 @@ val_data_gen = validation_image_generator.flow_from_directory(batch_size=batch_s
 
 sample_training_images, _ = next(train_data_gen)
 
-# Plot images
-# def plotImages(images_arr):
-#   _, axes = plt.subplots(1, 5, figsize=(20,20))
-#   axes = axes.flatten()
-#   for img, ax in zip( images_arr, axes):
-#     ax.imshow(img)
-#     ax.axis('off')
-#   plt.tight_layout()
-#   plt.show()
-
-# plotImages(sample_training_images[:5])
-
 # Create model
 model = Sequential([
   Conv2D(16, 3, padding='same', activation='relu', input_shape=(IMG_HEIGHT, IMG_WIDTH ,3)),
