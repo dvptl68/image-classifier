@@ -28,10 +28,7 @@ epochs = 15
 IMG_HEIGHT = 150
 IMG_WIDTH = 150
 
-if K.image_data_format() == 'channels_first':
-  input_shape = (3, IMG_WIDTH, IMG_HEIGHT)
-else:
-  input_shape = (IMG_WIDTH, IMG_HEIGHT, 3)
+input_shape = (3, IMG_WIDTH, IMG_HEIGHT) if K.image_data_format() == 'channels_first' else (IMG_WIDTH, IMG_HEIGHT, 3)
 
 # Model information
 model = Sequential()
