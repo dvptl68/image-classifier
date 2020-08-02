@@ -52,4 +52,8 @@ model.add(Dense(1))
 model.add(Activation('sigmoid'))
 
 # Compile model
-model.compile(loss ='binary_crossentropy', optimizer ='rmsprop', metrics =['accuracy']) 
+model.compile(loss ='binary_crossentropy', optimizer ='rmsprop', metrics =['accuracy'])
+
+# Create image data generators
+train_datagen = ImageDataGenerator(rescale = 1. / 255, shear_range = 0.2, zoom_range = 0.2, horizontal_flip = True)
+test_datagen = ImageDataGenerator(rescale = 1. / 255)
