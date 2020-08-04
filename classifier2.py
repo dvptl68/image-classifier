@@ -61,3 +61,6 @@ test_datagen = ImageDataGenerator(rescale = 1. / 255)
 # Generate from dataset
 train_generator = train_datagen.flow_from_directory(train_dir, target_size =(IMG_WIDTH, IMG_HEIGHT), batch_size = batch_size, class_mode ='binary')
 validation_generator = test_datagen.flow_from_directory(validation_dir, target_size =(IMG_WIDTH, IMG_HEIGHT), batch_size = batch_size, class_mode ='binary')
+
+# Fit model
+model.fit_generator(train_generator, steps_per_epoch = nb_train_samples // batch_size, epochs = epochs, validation_data = validation_generator, validation_steps = nb_validation_samples // batch_size)
