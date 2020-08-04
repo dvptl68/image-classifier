@@ -57,3 +57,5 @@ model.compile(loss ='binary_crossentropy', optimizer ='rmsprop', metrics =['accu
 # Create image data generators
 train_datagen = ImageDataGenerator(rescale = 1. / 255, shear_range = 0.2, zoom_range = 0.2, horizontal_flip = True)
 test_datagen = ImageDataGenerator(rescale = 1. / 255)
+
+train_generator = train_datagen.flow_from_directory(train_dir, target_size =(IMG_WIDTH, IMG_HEIGHT), batch_size = batch_size, class_mode ='binary')
